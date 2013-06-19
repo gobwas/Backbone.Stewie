@@ -1,0 +1,30 @@
+{
+  "name": "Button.Test",
+  "version": "0.1.0",
+  "description": "Stewie",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "Sergey Kamardin",
+  "license": "BSD",
+  "jam": {
+    "packageDir": "./vendor/jam",
+    "dependencies": {
+      "backbone": "*",
+      "jquery": "*",
+      "jquery-ui-core": "*",
+      "underscore": "*",
+      "underscore.string": "*",
+      "moment": "*"
+    }
+  },
+  "devDependencies": {
+    "connect": "~2.7.11"
+  }
+}
