@@ -2,9 +2,17 @@ define(
 	[],
 	function () {
 		var Region = function(el) {
+			if (!el) {
+				throw new Error("Region must have existing element");
+			}
+
 			this.el = el;
 			this.$el = $(el);
-			this.$ = this.$el.find;
+
+			this.$ = function(selector) {
+				return this.$el.find(selector);
+			};
+
 			this.views = {};
 		};
 

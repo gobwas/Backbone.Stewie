@@ -79,6 +79,8 @@ define(
 					throw new Error("Module need to have the layout");
 				}
 
+				this.layout.render();
+
 				_.each(this.regions, function(submodule, target) {
 					var region = self.layout.createRegion(target);
 
@@ -92,8 +94,6 @@ define(
 						region.setView(submodule.layout);
 					}
 				});
-
-				this.layout.render();
 
 				return this.layout;
 			}
