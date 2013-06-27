@@ -8,7 +8,9 @@
         render: true
       },
       regions: {
-        ".main": "hello"
+        ".main": "hello",
+        ".secondary": "hello1",
+        ".third": ["hello", "hello1", "hello"]
       }
     },
     hello: {
@@ -16,6 +18,13 @@
       path: "src/modules/module/index",
       options: {
         render: false
+      }
+    },
+    hello1: {
+      id: "hello1_module",
+      path: "src/modules/module/index",
+      options: {
+        render: true
       }
     }
   });

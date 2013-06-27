@@ -21,6 +21,10 @@ define(
 				var el = this.$(target).get(0);
 
 				return this.regions[target] = new Region(el);
+			},
+
+			getRegion: function(target) {
+				return this.regions[target];
 			}
 		});
 

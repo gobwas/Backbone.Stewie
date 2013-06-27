@@ -18,7 +18,7 @@ define(
 
 		Region.prototype = (function() {
 			var generateId = function(view) {
-				return _.sprintf('%s%%%%s', view.cid, _.uniqueId('regions_view'));
+				return _.sprintf('%s:::%s', view.cid, _.uniqueId('regions_view'));
 			};
 
 			return {
@@ -40,6 +40,10 @@ define(
 					this.$el.append(view.el);
 
 					return view;
+				},
+
+				show: function() {
+
 				}
 			};
 

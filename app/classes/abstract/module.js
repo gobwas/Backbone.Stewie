@@ -72,6 +72,10 @@ define(
 
 			dispatcherClass: AbstractDispatcher,
 
+			// TODO Возможно layout должен знать id модуля, к которому он принадлежит
+
+			// TODO Регионы должны знать какие модули лежат внутри них
+
 			render: function() {
 				var self = this;
 

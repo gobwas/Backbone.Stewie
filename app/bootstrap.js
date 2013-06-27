@@ -26,9 +26,9 @@ require(
 
 				DM.get('module-manager').done(function(ModuleManager) {
 					ModuleManager.get('index').done(function(module) {
-						console.log('module loaded');
 						$('#main').append(module.render().el);
-						console.log('module rendered');
+
+						module.layout.getRegion(".third");
 					});
 				});
 

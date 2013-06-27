@@ -33,11 +33,12 @@ define(
 			 * Загружает список модулей.
 			 *
 			 * @param keys
+			 * @param isArray
 			 * @private
 			 * @returns {*}
 			 */
-			var getModules = function(keys) {
-				var modules = {},
+			var getModules = function(keys, isArray) {
+				var modules = isArray ? [] : {},
 					promises = [],
 					deferred = $.Deferred();
 
@@ -45,7 +46,7 @@ define(
 					var promise;
 
 					if (_.isArray(key)) {
-						promise = getModules(key);
+						promise = getModules(key, true);
 					} else {
 						promise = self.get(key);
 					}
