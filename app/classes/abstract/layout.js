@@ -1,6 +1,8 @@
 define(
-	[],
-	function () {
+	[
+		"app/classes/region",
+	],
+	function (Region) {
 		var AbstractLayout = Backbone.View.extend({
 			constructor: function(options) {
 				options || (options = {});
@@ -10,17 +12,15 @@ define(
 				Backbone.View.call(this, options);
 			},
 
-			setRegion: function(region, view) {
+			createRegion: function(target) {
 				// удалить регион, если таковой имеется
-				if (this.regions[region]) {
-					this.regions[region].remove();
+				if (this.regions[target]) {
+					this.regions[target].remove();
 				}
 
-				this.regions[region] = view;
-			},
+				var el = this.$(target).get(0);
 
-			renderRegions: function() {
-				// here render regions
+				return this.regions[target] = new Region({el: el});
 			}
 		});
 

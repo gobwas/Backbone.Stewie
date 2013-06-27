@@ -11,6 +11,12 @@ define(
 			var _config;
 
 			/**
+			 *
+			 * @type {*}
+			 */
+			var self = this;
+
+			/**
 			 * Устанавливает конфигурацию.
 			 *
 			 * @param {object} config
@@ -21,6 +27,32 @@ define(
 				}
 
 				_config = config;
+			};
+
+			var getModules = function(keys) {
+				var modules = {},
+					promises = [],
+					deferred = $.Deferred();
+
+				_.each(keys, function(key, index) {
+					var promise;
+
+					if (_.isArray(key)) {
+						promise = getModules(key);
+					} else {
+						promise = self.get(key);
+					}
+
+					promises.push(promise.done(function(module) {
+						modules[index] = module;
+					}));
+				});
+
+				$.when(promises).done(function() {
+					deferred.resolve(modules);
+				});
+
+				return deferred.promise();
 			};
 
 			/**
@@ -34,29 +66,16 @@ define(
 					throw new Error(_.sprintf("Undefined module '%s'", key));
 				}
 
-				var self = this,
-					deferred = $.Deferred(),
+				var deferred = $.Deferred(),
 					path     = _config[key].path,
-					key      = _config[key].key,
+					id       = _config[key].id,
 					options  = _config[key].options,
 					regions  = _config[key].regions;
 
 				require([path], function(moduleConstructor) {
 
-					var module = new moduleConstructor(key, options);
-
-					var promises = [];
-
-					_.reduce(regions, function(regions, key, target) {
-						var promise = self.get(key).done(function(module) {
-							regions[target] = module;
-						});
-
-						promises.push(promise);
-					});
-
-					$.when(promises).done(function() {
-						module.setRegions(regions);
+					getModules(regions).done(function(regions) {
+						var module = new moduleConstructor(id, options, regions);
 						deferred.resolve(module);
 					});
 

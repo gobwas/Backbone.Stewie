@@ -16,9 +16,24 @@ var jam = {
             "main": "jquery-ui-1.10.2.custom.js"
         },
         {
+            "name": "lodash",
+            "location": "vendor/jam/lodash",
+            "main": "./dist/lodash.compat.js"
+        },
+        {
             "name": "moment",
             "location": "vendor/jam/moment",
             "main": "moment.js"
+        },
+        {
+            "name": "require",
+            "location": "vendor/jam/require",
+            "main": "require.min.js"
+        },
+        {
+            "name": "tpl",
+            "location": "vendor/jam/tpl",
+            "main": "tpl.js"
         },
         {
             "name": "underscore",
@@ -67,9 +82,24 @@ if (typeof require !== "undefined" && require.config) {
             "main": "jquery-ui-1.10.2.custom.js"
         },
         {
+            "name": "lodash",
+            "location": "vendor/jam/lodash",
+            "main": "./dist/lodash.compat.js"
+        },
+        {
             "name": "moment",
             "location": "vendor/jam/moment",
             "main": "moment.js"
+        },
+        {
+            "name": "require",
+            "location": "vendor/jam/require",
+            "main": "require.min.js"
+        },
+        {
+            "name": "tpl",
+            "location": "vendor/jam/tpl",
+            "main": "tpl.js"
         },
         {
             "name": "underscore",
@@ -117,9 +147,24 @@ else {
             "main": "jquery-ui-1.10.2.custom.js"
         },
         {
+            "name": "lodash",
+            "location": "vendor/jam/lodash",
+            "main": "./dist/lodash.compat.js"
+        },
+        {
             "name": "moment",
             "location": "vendor/jam/moment",
             "main": "moment.js"
+        },
+        {
+            "name": "require",
+            "location": "vendor/jam/require",
+            "main": "require.min.js"
+        },
+        {
+            "name": "tpl",
+            "location": "vendor/jam/tpl",
+            "main": "tpl.js"
         },
         {
             "name": "underscore",

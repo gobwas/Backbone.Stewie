@@ -1,7 +1,7 @@
 require(
 	[
 		"jquery",
-		"underscore",
+		"lodash",
 		"underscore.string",
 		"backbone"
 	],
@@ -25,8 +25,10 @@ require(
 				DM.setProperties(config.properties);
 
 				DM.get('module-manager').done(function(ModuleManager) {
-					ModuleManager.get('index').done(function(layout) {
+					ModuleManager.get('index').done(function(module) {
 						console.log('module loaded');
+						$('#main').append(module.render().el);
+						console.log('module rendered');
 					});
 				});
 

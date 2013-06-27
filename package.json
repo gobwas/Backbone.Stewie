@@ -19,8 +19,9 @@
       "backbone": "*",
       "jquery": "*",
       "jquery-ui-core": "*",
-      "underscore": "*",
+      "lodash": "*",
       "underscore.string": "*",
+	  "tpl": "*",
       "moment": "*"
     }
   },

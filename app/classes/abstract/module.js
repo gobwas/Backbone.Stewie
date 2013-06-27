@@ -4,21 +4,29 @@ define(
 		"app/classes/abstract/layout",
 	],
 	function (AbstractDispatcher, AbstractLayout) {
-		var Module = function(key, options) {
-			/**
-			 * Параметры модуля.
-			 *
-			 * @type {object}
-			 */
-			this.options = options || {};
-
+		var Module = function(id, options, regions) {
 			/**
 			 * Ключ модуля.
 			 *
 			 * @type {string}
 			 * @private
 			 */
-			var _key = key;
+			var _id = id;
+
+			/**
+			 * Параметры модуля.
+			 *
+			 * @type {object}
+			 * @private
+			 */
+			var _options = options || {};
+
+			/**
+			 * Вложенные модули.
+			 *
+			 * @type {object}
+			 */
+			this.regions = regions;
 
 			/**
 			 * Диспетчер модуля.
@@ -31,8 +39,25 @@ define(
 			 * Возвращает ключ модуля.
 			 * @returns {string}
 			 */
-			this.getKey = function() {
-				return _key;
+			this.getId = function() {
+				return _id;
+			};
+
+			/**
+			 *
+			 * @returns {Mixed}
+			 */
+			this.getOptions = function() {
+				return _.cloneDeep(_options);
+			};
+
+			/**
+			 *
+			 * @param key
+			 * @returns {Mixed}
+			 */
+			this.getOption = function(key) {
+				return _.cloneDeep(_options[key]);
 			};
 
 			this.initialize();
@@ -43,23 +68,28 @@ define(
 
 			dispatcherClass: AbstractDispatcher,
 
-			initialize: function() {
-				// if this constructed
-				console.log("#STUB: abstract_module->initialize with key %s", this.getKey());
-			},
-
-			setRegions: function(regions) {
-				this.regions = regions;
-			},
-
 			render: function() {
+				var self = this;
+
 				if (!this.layout) {
-					throw new Error("Module need to have layout");
+					throw new Error("Module need to have the layout");
 				}
 
-				_.each(this.regions, function(view, target) {
-					this.layout.setView(target, view);
+				_.each(this.regions, function(submodule, target) {
+					var region = self.layout.createRegion(target);
+
+					if (_.isArray(submodule)) {
+						_.each(submodule, function(module) {
+							region.insertView(module.layout, module.getOption('render'));
+						})
+					} else {
+						region.setView(submodule.layout);
+					}
 				});
+
+				this.layout.render();
+
+				return this.layout;
 			}
 		};
 

@@ -5,22 +5,22 @@
     <ignored path="Button.Test.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/config.coffee" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371633591836" ignored="false" />
-    <file path="/requirejs.coffee" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371627674664" ignored="false" />
+    <file path="/requirejs.coffee" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340525772" ignored="false" />
     <file path="/services.coffee" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371636222976" ignored="false" />
-    <file path="/bootstrap.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372259672057" ignored="false" />
+    <file path="/bootstrap.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372328386495" ignored="false" />
     <file path="/main.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371628033783" ignored="false" />
     <file path="/application.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371628075643" ignored="false" />
     <file path="/view.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371627181049" ignored="false" />
     <file path="/router.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371723487373" ignored="false" />
     <file path="/model.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371627236016" ignored="false" />
-    <file path="/layout.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372327215639" ignored="false" />
+    <file path="/layout.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372334833280" ignored="false" />
     <file path="/index.html" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371627526712" ignored="false" />
     <file path="/server.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371627562448" ignored="false" />
     <file path="/dm.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371641570995" ignored="false" />
-    <file path="/module-manager.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372327329908" ignored="false" />
-    <file path="/layouts.coffee" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372327286026" ignored="false" />
+    <file path="/module-manager.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372343053945" ignored="false" />
+    <file path="/layouts.coffee" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340347645" ignored="false" />
     <file path="/index.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372321288242" ignored="false" />
-    <file path="/module.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372327363711" ignored="false" />
+    <file path="/module.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372343446413" ignored="false" />
     <file path="$PROJECT_DIR$/../vkredit/main.site/deploy/frontend/www/css/design.css" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371710097292" ignored="false" />
     <file path="$PROJECT_DIR$/../vkredit/main.site/deploy/frontend/www/form/static/javascript.all.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371710097292" ignored="false" />
     <file path="$PROJECT_DIR$/../vkredit/internal-api.site/deploy/classes/api/validators/photos_update.xml" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371710676869" ignored="false" />
@@ -68,6 +68,15 @@
     <file path="$PROJECT_DIR$/../vkredit/main.site/deploy/frontend/www/js/cabinet/pages/incompleted/view/order.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372318502671" ignored="false" />
     <file path="/order.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1371729290921" ignored="false" />
     <file path="/dispatcher.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372318384327" ignored="false" />
+    <file path="/layout.html" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372333215584" ignored="false" />
+    <file path="/package.json" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372332219141" ignored="false" />
+    <file path="/region.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372343480598" ignored="false" />
+    <file path="$PROJECT_DIR$/vendor/jam/jquery-ui-core/jquery-ui-1.10.2.custom.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340800053" ignored="false" />
+    <file path="$PROJECT_DIR$/vendor/jam/moment/moment.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340800053" ignored="false" />
+    <file path="$PROJECT_DIR$/vendor/jam/jquery/dist/jquery.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340800053" ignored="false" />
+    <file path="$PROJECT_DIR$/vendor/jam/backbone/package.json" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340800053" ignored="false" />
+    <file path="$PROJECT_DIR$/vendor/jam/require/require.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340800053" ignored="false" />
+    <file path="$PROJECT_DIR$/vendor/jam/require/require.min.js" changelist="bb4a786a-a7ab-47ec-841a-6360614b15ae" time="1372340800053" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,55 +101,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="bootstrap.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/bootstrap.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="15" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="module-manager.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/module-manager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="61" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+            <state line="81" column="19" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/classes/abstract/layout.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="10" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/module/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="module.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="module.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/classes/abstract/module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="30" selection-start="652" selection-end="652" vertical-scroll-proportion="0.540146">
+            <state line="82" column="40" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layouts.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/layouts.coffee">
+      <file leaf-file-name="region.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/classes/region.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="15" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0">
+            <state line="38" column="17" selection-start="742" selection-end="742" vertical-scroll-proportion="0.55474454">
               <folding />
             </state>
           </provider>
@@ -156,22 +147,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/app/config/requirejs.coffee" />
-        <option value="$PROJECT_DIR$/app/main.js" />
-        <option value="$PROJECT_DIR$/app/dm.js" />
-        <option value="$PROJECT_DIR$/src/modules/module/js/views/layout.js" />
         <option value="$PROJECT_DIR$/app/config/services.coffee" />
         <option value="$PROJECT_DIR$/app/application.js" />
         <option value="$PROJECT_DIR$/app/config/config.coffee" />
-        <option value="$PROJECT_DIR$/app/bootstrap.js" />
         <option value="$PROJECT_DIR$/app/classes/abstract/dispatcher.js" />
-        <option value="$PROJECT_DIR$/src/modules/module/index.js" />
+        <option value="$PROJECT_DIR$/src/modules/module/js/views/layout.js" />
+        <option value="$PROJECT_DIR$/src/modules/module/html/layout.html" />
         <option value="$PROJECT_DIR$/app/classes/abstract/layout.js" />
+        <option value="$PROJECT_DIR$/src/modules/module/index.js" />
         <option value="$PROJECT_DIR$/app/config/layouts.coffee" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/app/config/requirejs.coffee" />
+        <option value="$PROJECT_DIR$/vendor/jam/require.config.js" />
+        <option value="$PROJECT_DIR$/app/bootstrap.js" />
         <option value="$PROJECT_DIR$/app/services/module-manager.js" />
         <option value="$PROJECT_DIR$/app/classes/abstract/module.js" />
+        <option value="$PROJECT_DIR$/app/classes/region.js" />
       </list>
     </option>
   </component>
@@ -216,15 +207,9 @@
               <option name="myItemId" value="Button.Test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Button.Test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Button.Test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -234,18 +219,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Button.Test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,23 +232,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -289,19 +246,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="jam" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,7 +264,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lodash" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Button.Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Button.Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lodash" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -382,8 +365,9 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="JavaScript.Libraries" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor/jam/underscore/underscore.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor/jam/lodash/dist/lodash.compat.js" />
     <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -544,110 +528,118 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/services.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/layouts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/dm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="0" selection-start="3463" selection-end="3463" vertical-scroll-proportion="0.0">
+        <state line="57" column="0" selection-start="825" selection-end="825" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.coffee">
+    <entry file="file://$PROJECT_DIR$/src/modules/module/html/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="27" selection-start="170" selection-end="177" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="2" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/jam/backbone/backbone.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1540" column="36" selection-start="58544" selection-end="58544" vertical-scroll-proportion="0.63828063">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="10" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="2" selection-start="623" selection-end="623" vertical-scroll-proportion="0.540146">
+        <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/module/js/views/layout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="93" selection-end="93" vertical-scroll-proportion="0.08759124">
+        <state line="15" column="13" selection-start="309" selection-end="309" vertical-scroll-proportion="0.2189781">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/jam/backbone/backbone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1006" column="6" selection-start="37266" selection-end="37266" vertical-scroll-proportion="0.34768212">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/module/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="30" selection-start="544" selection-end="544" vertical-scroll-proportion="0.33576643">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/classes/abstract/dispatcher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.3941606">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/classes/abstract/layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+        <state line="13" column="2" selection-start="267" selection-end="267" vertical-scroll-proportion="0.18978103">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/layouts.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="15" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0">
+        <state line="12" column="19" selection-start="249" selection-end="249" vertical-scroll-proportion="0.17518248">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/jam/require.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="6" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.01459854">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/requirejs.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="18" selection-start="160" selection-end="160" vertical-scroll-proportion="0.11678832">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/jam/lodash/dist/lodash.backbone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.4452555">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/jam/lodash/dist/lodash.compat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5901" column="24" selection-start="201067" selection-end="201067" vertical-scroll-proportion="0.7934426">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="1" selection-start="582" selection-end="582" vertical-scroll-proportion="0.44739023">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/classes/abstract/layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="2" selection-start="534" selection-end="534" vertical-scroll-proportion="0.40875912">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="15" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/module-manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="61" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+        <state line="81" column="19" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/classes/abstract/module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="30" selection-start="652" selection-end="652" vertical-scroll-proportion="0.540146">
+        <state line="82" column="40" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/classes/region.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="17" selection-start="742" selection-end="742" vertical-scroll-proportion="0.55474454">
           <folding />
         </state>
       </provider>
