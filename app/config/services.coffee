@@ -1,6 +1,9 @@
 define [
   "app/config/layouts"
 ], (layouts) ->
+
+
+
   "module-manager":
     path: "app/services/module-manager"
     options: {}

@@ -25,7 +25,9 @@ require(
 				DM.setProperties(config.properties);
 
 				DM.get('module-manager').done(function(ModuleManager) {
-					ModuleManager.get('index');
+					ModuleManager.get('index').done(function(layout) {
+						console.log('module loaded');
+					});
 				});
 
 				require(["app/main"]);

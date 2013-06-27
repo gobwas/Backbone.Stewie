@@ -5,10 +5,16 @@ define(
 	],
 	function (Module, Layout) {
 		return Module.extend({
-			construct: function() {
-				Module.prototype.construct.apply(this, arguments);
-				console.log('#STUB: module->construct');
-				this.layout = new Layout();
+			initialize: function() {
+				Module.prototype.initialize.apply(this, arguments);
+				console.log('#STUB: module->initialize');
+				// here we creating model, model view, etc...
+
+
+
+				var model = new Backbone.Model();
+				this.layout = new Layout({module: this, model: model});
+
 			}
 		});
 	}

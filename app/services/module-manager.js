@@ -2,8 +2,19 @@ define(
 	[],
 	function () {
 		var ModuleManager = function() {
-			var _config = null;
+			/**
+			 * Конфигурация модулей.
+			 *
+			 * @type {object}
+			 * @private
+			 */
+			var _config;
 
+			/**
+			 * Устанавливает конфигурацию.
+			 *
+			 * @param {object} config
+			 */
 			this.setConfig = function(config) {
 				if (_config) {
 					throw new Error("Module Manager is already configured");
@@ -12,6 +23,12 @@ define(
 				_config = config;
 			};
 
+			/**
+			 * Возвращает собранный модуль.
+			 *
+			 * @param {string} key
+			 * @returns {object} $.Deferred.promise
+			 */
 			this.get = function(key) {
 				if (!_config[key]) {
 					throw new Error(_.sprintf("Undefined module '%s'", key));
@@ -19,28 +36,28 @@ define(
 
 				var self = this,
 					deferred = $.Deferred(),
-					path    = _config[key].path,
-					regions = _config[key].regions;
+					path     = _config[key].path,
+					key      = _config[key].key,
+					options  = _config[key].options,
+					regions  = _config[key].regions;
 
-				require([path], function(module) {
+				require([path], function(moduleConstructor) {
 
-					var inst = new module();
+					var module = new moduleConstructor(key, options);
 
-					inst.construct();
+					var promises = [];
 
-					var layout = inst.layout;
-						regionPromises = [];
-
-					_.each(regions, function(key, target) {
-						var promise = self.get(key).done(function(view) {
-							layout.setRegion(target, view);
+					_.reduce(regions, function(regions, key, target) {
+						var promise = self.get(key).done(function(module) {
+							regions[target] = module;
 						});
 
-						regionPromises.push(promise);
+						promises.push(promise);
 					});
 
-					$.when(regionPromises).done(function() {
-						deferred.resolve(layout);
+					$.when(promises).done(function() {
+						module.setRegions(regions);
+						deferred.resolve(module);
 					});
 
 				});

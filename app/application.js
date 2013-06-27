@@ -17,7 +17,7 @@ define(
 			};
 
 			this.init = function() {
-				var model = new AppModel(),
+				var model  = new AppModel(),
 					router = new AppRouter,
 					layout = new AppLayout({model: model, router: router});
 
