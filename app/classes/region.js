@@ -16,7 +16,7 @@ define(
 			return {
 				constructor: Region,
 
-				setView: function(view, render) {
+				setView: function(view) {
 					_.each(this.views, function(view, key, views) {
 						view.remove();
 						delete views[key];
@@ -24,16 +24,12 @@ define(
 
 					this.$('*').remove();
 
-					this.insertView(view, render);
+					this.insertView(view);
 				},
 
-				insertView: function(view, render) {
+				insertView: function(view) {
 					this.views[generateId(view)] = view;
 					this.$el.append(view.el);
-
-					if (render) {
-						view.render();
-					}
 
 					return view;
 				}

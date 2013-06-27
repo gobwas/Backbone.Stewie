@@ -5,6 +5,10 @@ define(
 	],
 	function (AbstractDispatcher, AbstractLayout) {
 		var Module = function(id, options, regions) {
+
+			// TODO assert (id);
+
+
 			/**
 			 * Ключ модуля.
 			 *
@@ -80,8 +84,10 @@ define(
 
 					if (_.isArray(submodule)) {
 						_.each(submodule, function(module) {
-							region.insertView(module.layout, module.getOption('render'));
-						})
+							var layout = module.getOption('render') ? module.render() : module.layout;
+
+							region.insertView(layout);
+						});
 					} else {
 						region.setView(submodule.layout);
 					}

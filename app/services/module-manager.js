@@ -29,6 +29,13 @@ define(
 				_config = config;
 			};
 
+			/**
+			 * Загружает список модулей.
+			 *
+			 * @param keys
+			 * @private
+			 * @returns {*}
+			 */
 			var getModules = function(keys) {
 				var modules = {},
 					promises = [],
@@ -48,9 +55,10 @@ define(
 					}));
 				});
 
-				$.when(promises).done(function() {
+				$.when.apply($, promises).done(function() {
 					deferred.resolve(modules);
 				});
+
 
 				return deferred.promise();
 			};
