@@ -1,21 +1,11 @@
 define(
 	[
 		"app/classes/abstract/dispatcher",
-		"app/classes/abstract/layout",
 	],
-	function (AbstractDispatcher, AbstractLayout) {
-		var Module = function(id, options, regions) {
+	function (AbstractDispatcher) {
+		var Module = function(options) {
 
 			// TODO assert (id);
-
-
-			/**
-			 * Ключ модуля.
-			 *
-			 * @type {string}
-			 * @private
-			 */
-			var _id = id;
 
 			/**
 			 * Параметры модуля.
@@ -26,11 +16,19 @@ define(
 			var _options = options || {};
 
 			/**
+			 * Ключ модуля.
+			 *
+			 * @type {string}
+			 * @private
+			 */
+			var _id = options.id;
+
+			/**
 			 * Вложенные модули.
 			 *
 			 * @type {object}
 			 */
-			this.regions = regions;
+			this.regions = options.regions;
 
 			/**
 			 * Диспетчер модуля.
@@ -67,41 +65,63 @@ define(
 			this.initialize();
 		};
 
-		Module.prototype = {
-			constructor: Module,
+		Module.prototype = (function() {
 
-			dispatcherClass: AbstractDispatcher,
+			var _addRegion = function() {
 
-			// TODO Возможно layout должен знать id модуля, к которому он принадлежит
+			};
 
-			// TODO Регионы должны знать какие модули лежат внутри них
+			return {
+				constructor: Module,
 
-			render: function() {
-				var self = this;
+				dispatcherClass: AbstractDispatcher,
 
-				if (!this.layout) {
-					throw new Error("Module need to have the layout");
-				}
+				// TODO Возможно layout должен знать id модуля, к которому он принадлежит
 
-				this.layout.render();
+				// TODO Регионы должны знать какие модули лежат внутри них
 
-				_.each(this.regions, function(submodule, target) {
-					var region = self.layout.createRegion(target);
+				render: (function() {
+					/**
+					 *
+					 * @param region
+					 * @param module
+					 * @param insert
+					 */
+					var addView = function(region, module, insert) {
+						var layout = module.getOption('render') ? module.render().layout : module.layout;
+						insert ? region.insertView(layout) : region.setView(layout);
+					};
 
-					if (_.isArray(submodule)) {
-						_.each(submodule, function(module) {
-							var layout = module.getOption('render') ? module.render() : module.layout;
+					return function() {
+						var self = this;
 
-							region.insertView(layout);
+						if (!this.layout) {
+							throw new Error("Module need to have the layout");
+						}
+
+						this.layout.render();
+
+						_.each(this.regions, function(submodule, target) {
+							var region = self.layout.createRegion(target);
+
+							if (_.isArray(submodule)) {
+								_.each(submodule, function(module) {
+									addView(region, module, true);
+								});
+							} else {
+								addView(region, submodule, false);
+							}
 						});
-					} else {
-						region.setView(submodule.layout);
-					}
-				});
 
-				return this.layout;
+						return this;
+					}
+				})(),
+
+				getLayout: function() {
+					return this.layout;
+				}
 			}
-		};
+		})();
 
 		Module.extend = Backbone.Model.extend;
 

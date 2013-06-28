@@ -1,15 +1,19 @@
 define [
+  "app/classes/abstract/dm"
   "app/config/layouts"
-], (layouts) ->
+], (dm, layouts) ->
 
 
 
   "module-manager":
     path: "app/services/module-manager"
-    options: {}
     deps:
       calls:
-        setConfig: [layouts]
+        setConfig: [dm.escape(layouts)]
+
+
+
+
       # arguments: ["%some_property"]
       # calls:
       #  setSome: ["%some_property"]

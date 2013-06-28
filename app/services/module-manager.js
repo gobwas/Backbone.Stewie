@@ -1,98 +1,29 @@
 define(
-	[],
-	function () {
-		var ModuleManager = function() {
+	[
+		"app/classes/abstract/dm",
+	],
+	function (AbstractDependencyManager) {
+		var ModuleManager = AbstractDependencyManager.extend({
 			/**
-			 * Конфигурация модулей.
-			 *
-			 * @type {object}
-			 * @private
+			 * Имя экземпляра.
 			 */
-			var _config;
+			name: "Module Manager",
 
 			/**
+			 * Возвращает сервис.
 			 *
-			 * @type {*}
-			 */
-			var self = this;
-
-			/**
-			 * Устанавливает конфигурацию.
+			 * @param key {String}
 			 *
-			 * @param {object} config
+			 * @returns {$.Deferred.promise}
 			 */
-			this.setConfig = function(config) {
-				if (_config) {
-					throw new Error("Module Manager is already configured");
+			get: function(key) {
+				if (!this.getConfig(key)) {
+					throw new Error(_.sprintf("Module with key '%s' is not present in configuration", key));
 				}
 
-				_config = config;
-			};
-
-			/**
-			 * Загружает список модулей.
-			 *
-			 * @param keys
-			 * @param isArray
-			 * @private
-			 * @returns {*}
-			 */
-			var getModules = function(keys, isArray) {
-				var modules = isArray ? [] : {},
-					promises = [],
-					deferred = $.Deferred();
-
-				_.each(keys, function(key, index) {
-					var promise;
-
-					if (_.isArray(key)) {
-						promise = getModules(key, true);
-					} else {
-						promise = self.get(key);
-					}
-
-					promises.push(promise.done(function(module) {
-						modules[index] = module;
-					}));
-				});
-
-				$.when.apply($, promises).done(function() {
-					deferred.resolve(modules);
-				});
-
-
-				return deferred.promise();
-			};
-
-			/**
-			 * Возвращает собранный модуль.
-			 *
-			 * @param {string} key
-			 * @returns {object} $.Deferred.promise
-			 */
-			this.get = function(key) {
-				if (!_config[key]) {
-					throw new Error(_.sprintf("Undefined module '%s'", key));
-				}
-
-				var deferred = $.Deferred(),
-					path     = _config[key].path,
-					id       = _config[key].id,
-					options  = _config[key].options,
-					regions  = _config[key].regions;
-
-				require([path], function(moduleConstructor) {
-
-					getModules(regions).done(function(regions) {
-						var module = new moduleConstructor(id, options, regions);
-						deferred.resolve(module);
-					});
-
-				});
-
-				return deferred.promise();
+				return this.build(key);
 			}
-		};
+		});
 
 		return ModuleManager;
 	}
