@@ -5,5 +5,3 @@ var app = connect()
 	.use(connect.logger('dev'))
 	.use(connect.static(__dirname))
 	.listen(8888);
-
-

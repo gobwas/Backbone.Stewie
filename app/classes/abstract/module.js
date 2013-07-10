@@ -31,13 +31,6 @@ define(
 			this.regions = options.regions;
 
 			/**
-			 * Диспетчер модуля.
-			 *
-			 * @type {AbstractDispatcher}
-			 */
-			this.dispatcher = new this.dispatcherClass({module: this});
-
-			/**
 			 * Возвращает ключ модуля.
 			 * @returns {string}
 			 */
@@ -62,15 +55,21 @@ define(
 				return _.cloneDeep(_options[key]);
 			};
 
+
+            // Инициализация
+            // -------------
+
+            /**
+             * Диспетчер модуля.
+             *
+             * @type {AbstractDispatcher}
+             */
+            this.dispatcher = new this.dispatcherClass({module: this});
+
 			this.initialize();
 		};
 
 		Module.prototype = (function() {
-
-			var _addRegion = function() {
-
-			};
-
 			return {
 				constructor: Module,
 
@@ -88,7 +87,10 @@ define(
 					 * @param insert
 					 */
 					var addView = function(region, module, insert) {
-						var layout = module.getOption('render') ? module.render().layout : module.layout;
+						var layout = module.getOption('render') ?
+                            module.render().layout :
+                            module.layout;
+
 						insert ? region.insertView(layout) : region.setView(layout);
 					};
 
@@ -105,11 +107,13 @@ define(
 							var region = self.layout.createRegion(target);
 
 							if (_.isArray(submodule)) {
-								_.each(submodule, function(module) {
-									addView(region, module, true);
+								_.each(submodule, function(submodule) {
+									addView(region, submodule, true);
+                                    self.dispatcher.register(submodule.dispatcher);
 								});
 							} else {
 								addView(region, submodule, false);
+                                self.dispatcher.register(submodule.dispatcher);
 							}
 						});
 
@@ -119,9 +123,23 @@ define(
 
 				getLayout: function() {
 					return this.layout;
-				}
+                },
+
+                /**
+                 * @abstract
+                 */
+                initialize: function() {
+                    // this.layout.on('all', this.dispatcher.bubble);
+                    // this.model.on('all', this.dispatcher.bubble);
+                    // this.collection.on('all', this.dispatcher.bubble);
+
+                    // this.dispatcher.on.bubble('submodule:change');
+                    // this.dispatcher.on.capture('range:change');
+                }
 			}
 		})();
+
+        _.extend(Module.prototype, Backbone.Events);
 
 		Module.extend = Backbone.Model.extend;
 

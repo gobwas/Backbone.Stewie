@@ -1,26 +1,33 @@
 define(
 	[],
 	function () {
-		var AbstractDispatcher = function() {
-			var _layouts = [];
+		var AbstractDispatcher = function(options)
+        {
+			var _registered = [],
+                _options = options,
+                _module = options.module,
+                _self = this;
 
-			this.register = function(layout) {
-				_layouts.push(layout);
+			this.register = function(dispatcher) {
+                _registered.push(dispatcher);
 			};
+
+            this.bubble = function(event, subject, value) {
+
+            };
+
+            this.capture = function(event, subject, value) {
+
+            };
 		};
 
 		AbstractDispatcher.prototype = {
-			constructor: AbstractDispatcher,
-
-			/**
-			 * Регистрирует новый модуль для наблюдения.
-			 *
-			 * @param layout
-			 */
-			register: function(layout) {
-
-			}
+			constructor: AbstractDispatcher
 		};
+
+        _.extend(AbstractDispatcher.prototype, Backbone.Events);
+
+        AbstractDispatcher.extend = Backbone.extend;
 
 		return AbstractDispatcher;
 	}

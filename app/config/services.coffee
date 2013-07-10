@@ -3,13 +3,23 @@ define [
   "app/config/layouts"
 ], (dm, layouts) ->
 
+  # Properties
+  # ----------
+
+  properties:
+    test: 1234
 
 
-  "module-manager":
-    path: "app/services/module-manager"
-    deps:
-      calls:
-        setConfig: [dm.escape(layouts)]
+  # Services
+  # --------
+
+  services:
+
+    "module-manager":
+      path: "app/services/module-manager"
+      deps:
+        calls:
+          setConfig: [dm.escape(layouts)]
 
 
 

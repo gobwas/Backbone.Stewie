@@ -185,7 +185,7 @@ define(
 					 * @private
 					 */
 					var newInstanceArgs = function(constructor, args) {
-						function Service(){};
+						function Service(){}
 						Service.prototype = constructor.prototype;
 
 						var service = new Service();

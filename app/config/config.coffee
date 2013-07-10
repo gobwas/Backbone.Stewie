@@ -1,8 +1,9 @@
 define
-  properties:
-    some_property: 111
-  application:
-    view:
-      el: "#main"
-    router:
-      routes: {}
+
+  # Application config
+  # ------------------
+
+  view:
+    el: "#main"
+  router:
+    routes: {}

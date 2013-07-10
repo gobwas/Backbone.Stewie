@@ -19,11 +19,11 @@ require(
 				"moment",
 			],
 
-			function(config, services, Application, DM, moment) {
-				Application.setConfig(config.application);
+			function(config, dmConfig, Application, DM, moment) {
+				Application.setConfig(config);
 
-				DM.setConfig(services);
-				DM.setProperties(config.properties);
+				DM.setConfig(dmConfig.services);
+				DM.setProperties(dmConfig.properties);
 
 				var start = new Date();
 
@@ -38,8 +38,6 @@ require(
 						console.log('during', end.getTime() - start.getTime());
 					});
 				});
-
-
 
 				require(["app/main"]);
 			}

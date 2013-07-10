@@ -2,11 +2,16 @@
 (function() {
   define(["app/classes/abstract/dm", "app/config/layouts"], function(dm, layouts) {
     return {
-      "module-manager": {
-        path: "app/services/module-manager",
-        deps: {
-          calls: {
-            setConfig: [dm.escape(layouts)]
+      properties: {
+        test: 1234
+      },
+      services: {
+        "module-manager": {
+          path: "app/services/module-manager",
+          deps: {
+            calls: {
+              setConfig: [dm.escape(layouts)]
+            }
           }
         }
       }
@@ -14,3 +19,7 @@
   });
 
 }).call(this);
+
+/*
+//@ sourceMappingURL=services.map
+*/
