@@ -13,11 +13,11 @@ define(
 			};
 
             this.bubble = function(event, subject, value) {
-
+                // here for all
             };
 
             this.capture = function(event, subject, value) {
-
+                // here for dispatchers
             };
 		};
 
