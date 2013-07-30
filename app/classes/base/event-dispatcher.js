@@ -1,11 +1,10 @@
 define(
 	[],
 	function () {
-		var AbstractDispatcher = function(options)
+		var EventDispatcher = function(options)
         {
 			var _registered = [],
                 _options = options,
-                _module = options.module,
                 _self = this;
 
 			this.register = function(dispatcher) {
@@ -21,14 +20,18 @@ define(
             };
 		};
 
-		AbstractDispatcher.prototype = {
-			constructor: AbstractDispatcher
+		EventDispatcher.prototype = {
+			constructor: EventDispatcher,
+
+            initialize: function(options) {
+                // TODO
+            }
 		};
 
-        _.extend(AbstractDispatcher.prototype, Backbone.Events);
+        _.extend(EventDispatcher.prototype, Backbone.Events);
 
-        AbstractDispatcher.extend = Backbone.extend;
+        EventDispatcher.extend = Backbone.extend;
 
-		return AbstractDispatcher;
+		return EventDispatcher;
 	}
 );

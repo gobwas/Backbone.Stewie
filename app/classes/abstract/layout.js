@@ -1,6 +1,6 @@
 define(
 	[
-		"app/classes/region",
+		"app/classes/base/region",
 	],
 	function (Region) {
 		var AbstractLayout = Backbone.View.extend({

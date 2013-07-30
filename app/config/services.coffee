@@ -22,8 +22,6 @@ define [
           setConfig: [dm.escape(layouts)]
 
 
-
-
       # arguments: ["%some_property"]
       # calls:
       #  setSome: ["%some_property"]

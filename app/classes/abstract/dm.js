@@ -176,7 +176,7 @@ define(
 				build: (function() {
 					/**
 					 * Инстанцирует объект.
-					 * Передает массив параметров в конструктор.
+					 * Передает массив переменной длины параметров в конструктор.
 					 *
 					 * @param constructor
 					 * @param args
@@ -194,6 +194,13 @@ define(
 						return service;
 					};
 
+                    var makeCall = function(service, key, args) {
+                        if (_.isFunction(service[key])) {
+                            service[key].apply(service, args);
+                        }
+                    };
+
+
 					return function(key) {
 						var deferred = $.Deferred(),
 							config   = this.getConfig(key),
@@ -206,14 +213,24 @@ define(
 
 						require([path], function(constructor) {
 							$.when(args, calls, properties).done(function(args, calls, properties) {
+                                // Arguments
+                                // ---------
 								var service = newInstanceArgs(constructor, args);
 
+                                // Calls
+                                // -----
 								_.each(calls, function(args, key) {
-									if (typeof service[key] == 'function') {
-										service[key].apply(service, args);
-									}
+                                    if (_.isObject(args)) {
+                                        _.each(args.suits, function(args) {
+                                            makeCall(service, key, args);
+                                        });
+                                    } else {
+                                        makeCall(service, key, args);
+                                    }
 								});
 
+                                // Properties
+                                // ----------
 								_.each(properties, function(value, key) {
 									service[key] = value;
 								});
