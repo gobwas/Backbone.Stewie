@@ -47,6 +47,10 @@ define(
 			 * @returns {*}
 			 */
 			this.getConfig = function(key) {
+                if (_.isUndefined(_config)) {
+                    throw new Error("Dependency Manager is not configured");
+                }
+
 				if (!_.isEqual(this.config, _config)) {
 					this.config = _.cloneDeep(_config);
 				}
