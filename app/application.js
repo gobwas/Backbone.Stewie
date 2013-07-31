@@ -1,8 +1,8 @@
 define(
 	[
-		"app/classes/models/app-model",
-		"app/classes/views/app-layout",
-		"app/classes/routers/app-router",
+		"app/classes/application/models/app-model",
+		"app/classes/application/views/app-layout",
+		"app/classes/application/routers/app-router",
 	],
 	function (AppModel, AppLayout, AppRouter) {
 		var Application = function() {

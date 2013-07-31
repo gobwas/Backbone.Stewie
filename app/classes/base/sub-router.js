@@ -1,14 +1,17 @@
 /**
  * Sub router.
  *
+ * TODO Реагировать на изменение урла, чтобы модуль мог менять свое состояние в дефолтное
+ *
  * @package base
  * @author Sergey Kamardin <s.kamardin@tcsbank.ru>
  */
 define(
     [
+        "app/classes/abstract/router"
     ],
-    function() {
-        var SubRouter = Backbone.Router.extend({
+    function(Router) {
+        var SubRouter = Router.extend({
             constructor: function(options) {
                 this.prefix = options.prefix || "";
 
@@ -17,7 +20,7 @@ define(
                         ? ""
                         : "/";
 
-                Backbone.Router.prototype.constructor.call( this, options );
+                Router.prototype.constructor.apply(this, arguments);
             },
 
             /**

@@ -16,7 +16,11 @@ define(
                     prefix: this.options.route
                 });
 
-                this.layout = new Layout({module: this, model: model, router: router});
+                this.layout = new Layout({
+                    module: this,
+                    model:  model,
+                    router: router
+                });
             }
         });
     }
