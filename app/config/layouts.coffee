@@ -7,6 +7,10 @@ define
         test: 123
       ]
 
+  ## -------------------
+  ## Pages
+  ## -------------------
+
   index:
     path: "src/modules/index/index"
     deps:
@@ -17,6 +21,10 @@ define
         regions:
           ".main": "@hello"
       ]
+
+  ## -------------------
+  ## Sub modules
+  ## -------------------
 
   hello:
     path: "src/modules/hello/hello"
