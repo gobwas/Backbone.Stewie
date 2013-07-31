@@ -20,9 +20,7 @@
             dispatcher: "@event_dispatcher",
             route: "index",
             regions: {
-              ".main": "@hello",
-              ".secondary": "@hello1",
-              ".third": ["@hello", "@hello1", "@hello"]
+              ".main": "@hello"
             }
           }
         ]
@@ -35,18 +33,21 @@
           {
             id: "hello",
             route: "index/hello",
+            regions: {
+              ".sub": "@hello1"
+            },
             dispatcher: "@event_dispatcher"
           }
         ]
       }
     },
     hello1: {
-      path: "src/modules/hello/hello",
+      path: "src/modules/hello1/hello1",
       deps: {
         "arguments": [
           {
             id: "hello1",
-            route: "index/hello1",
+            route: "index/hello/hello1",
             dispatcher: "@event_dispatcher"
           }
         ]

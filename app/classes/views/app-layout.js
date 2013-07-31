@@ -14,8 +14,6 @@ define(
             onRoute: function(route) {
                 var self = this;
 
-                console.log('route', route);
-
                 DM.get('module-manager').done(function(ModuleManager) {
                     try {
                         ModuleManager.get(route).done(function(module) {

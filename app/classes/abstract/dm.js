@@ -218,7 +218,6 @@ define(
 						require([path], function(constructor) {
 							$.when(args, calls, properties).done(function(args, calls, properties) {
 
-                                path;
                                 // Arguments
 								var service = newInstanceArgs(constructor, args);
 

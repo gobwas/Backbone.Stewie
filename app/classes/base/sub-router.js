@@ -20,6 +20,16 @@ define(
                 Backbone.Router.prototype.constructor.call( this, options );
             },
 
+            /**
+             * Apply URL.
+             * Acts like Backbone.loadURL, but withot loading URL =)
+             *
+             * It is used to match case, when user loads sub url necessary, or refreshes the page.
+             *
+             * @param route
+             * @param name
+             * @param callback
+             */
             applyUrl: function(route, name, callback) {
                 // grab the full URL
                 var fragment = Backbone.history.getFragment(null);
@@ -31,13 +41,15 @@ define(
                 if (routeRegExp.test(fragment)) {
                     var args = this._extractParameters(routeRegExp, fragment);
                     callback && callback.apply(this, args);
-                    this.trigger(['route:' + name].concat(args));
+                    this.trigger('route:' + name, args);
                     this.trigger('route', name, args);
                     Backbone.history.trigger('route', this, name, args);
                 }
             },
 
             route : function (route, name, callback) {
+                var self = this;
+
                 if (_.isFunction(name)) {
                     callback = name;
                     name = '';
@@ -61,7 +73,11 @@ define(
 
                 Backbone.Router.prototype.route.call(this, route, name, callback);
 
-                this.applyUrl(route, name, callback);
+                // Run applying URL when the main thread is over.
+                // It is because some view can bind listens to this router later in thread.
+                setTimeout(function() {
+                    self.applyUrl(route, name, callback);
+                }, 0);
 
                 return this;
             },
