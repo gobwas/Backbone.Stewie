@@ -1,46 +1,29 @@
 define(
-	[],
-	function () {
-		var Region = function(target, module) {
-			this.target = target;
-            this.modules.push(module);
-		};
+    [],
+    function () {
+        var Region = function() {
+            this.modules = [];
+        };
 
-		Region.prototype = (function() {
-			var generateId = function(view) {
-				return _.sprintf('%s:::%s', view.cid, _.uniqueId('regions_view'));
-			};
+        Region.prototype = {
+            constructor: Region,
 
-			return {
-				constructor: Region,
+            push: function(module) {
+                // TODO assert(module instanceof Component)
+                this.modules.push(module);
+            },
 
-				setView: function(view) {
-					_.each(this.views, function(view, key, views) {
-						view.remove();
-						delete views[key];
-					});
+            render: function(element) {
+                // TODO assert element instance of DOMElement
 
-					this.$('*').remove();
+                _.each(this.modules, function(module) {
+                    element.append(module.render().layout.el);
+                });
+            },
+        };
 
-					this.insertView(view);
-				},
+        Region.extend = Backbone.Model.extend;
 
-				insertView: function(view) {
-					this.views[generateId(view)] = view;
-					this.$el.append(view.el);
-
-					return view;
-				},
-
-				show: function() {
-
-				}
-			};
-
-		})();
-
-		Region.extend = Backbone.Model.extend;
-
-		return Region;
-	}
+        return Region;
+    }
 );

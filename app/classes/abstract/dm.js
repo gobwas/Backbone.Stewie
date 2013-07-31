@@ -217,14 +217,14 @@ define(
 
 						require([path], function(constructor) {
 							$.when(args, calls, properties).done(function(args, calls, properties) {
+
+                                path;
                                 // Arguments
-                                // ---------
 								var service = newInstanceArgs(constructor, args);
 
                                 // Calls
-                                // -----
 								_.each(calls, function(args, key) {
-                                    if (_.isObject(args)) {
+                                    if (!_.isArray(args)) {
                                         _.each(args.suits, function(args) {
                                             makeCall(service, key, args);
                                         });
@@ -234,7 +234,6 @@ define(
 								});
 
                                 // Properties
-                                // ----------
 								_.each(properties, function(value, key) {
 									service[key] = value;
 								});

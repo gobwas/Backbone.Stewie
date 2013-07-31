@@ -12,6 +12,7 @@ define
       arguments: [
         id: "index_module"
         dispatcher: "@event_dispatcher"
+        route: "/index"
         regions:
           ".main":      "@hello"
           ".secondary": "@hello1"
@@ -23,6 +24,7 @@ define
     deps:
       arguments: [
         id: "hello"
+        route: "/index/hello"
         dispatcher: "@event_dispatcher"
       ]
 
@@ -31,5 +33,6 @@ define
     deps:
       arguments: [
         id: "hello1"
+        route: "/index/hello1"
         dispatcher: "@event_dispatcher"
       ]

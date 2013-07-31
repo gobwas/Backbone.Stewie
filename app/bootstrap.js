@@ -29,7 +29,7 @@ require(
 
 				DM.get('module-manager').done(function(ModuleManager) {
 					ModuleManager.get('index').done(function(module) {
-						$('#main').append(module.render().getLayout().el);
+						$('#main').append(module.render().layout.el);
 
 						module.layout.getRegion(".third");
 

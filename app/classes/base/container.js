@@ -15,14 +15,17 @@ define(
         var Container = Component.extend({
 
             constructor: function Container(options) {
+                // parent call
+                Component.prototype.constructor.apply(this, arguments);
+
+                options || (options = {});
 
                 // TODO assert (dispatcher);
                 // TODO assert (regions);
 
-                // parent call
-                Component.prototype.constructor.apply(this, arguments);
-
                 this.events = options.dispatcher;
+
+                this.regions = {};
 
                 _.each(options.regions, function(module, target) {
                     this.addRegion(target, module);
@@ -36,12 +39,13 @@ define(
                 }
             },
 
-            getLayout: function() {
-                return this.layout;
-            },
-
             addRegion: function(target, module) {
-                (this.regions[target] && this.regions[target].push(module)) || (this.regions[target] = [module]);
+                var region = this.regions[target] || (this.regions[target] = new Region());
+                if (_.isArray(module)) {
+                    _.each(module, region.push, region);
+                } else {
+                    region.push(module);
+                }
             },
 
             render: (function() {
@@ -63,26 +67,13 @@ define(
                     var self = this;
 
                     if (!this.layout) {
-                        throw new Error("Module need to have the layout");
+                        throw new Error("Container must have the layout");
                     }
 
                     this.layout.render();
 
-                    _.each(this.regions, function(modules, target) {
-                        /*
-
-                        region.render()
-
-                         */
-
-
-                        var element = self.layout.$(target);
-
-                        if (element) {
-                            _.each(modules, function(module) {
-                                element.append(module.render.el);
-                            });
-                        }
+                    _.each(this.regions, function(region, target) {
+                        region.render(self.layout.$(target));
                     });
 
                     return this;

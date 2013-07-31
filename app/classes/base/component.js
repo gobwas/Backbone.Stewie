@@ -13,6 +13,8 @@ define(
             // TODO assert (id);
             // TODO assert (options);
 
+            options || (options = {});
+
             /**
              * Parameters.
              *
@@ -27,7 +29,7 @@ define(
              * @type {string}
              * @private
              */
-            var _id = options.id;
+            var _id = options.id || null;
 
             /**
              * Returns component key.
@@ -75,11 +77,11 @@ define(
              * @returns {*}
              */
             render: function() {
-                if (!this.view) {
-                    throw new Error("Component need to have the view");
+                if (!this.layout) {
+                    throw new Error("Component must have the layout");
                 }
 
-                this.view.render();
+                this.layout.render();
 
                 return this;
             },
