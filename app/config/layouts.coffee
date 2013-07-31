@@ -7,12 +7,12 @@ define
       ]
 
   index:
-    path: "src/modules/module/index"
+    path: "src/modules/index/index"
     deps:
       arguments: [
         id: "index_module"
         dispatcher: "@event_dispatcher"
-        route: "/index"
+        route: "index"
         regions:
           ".main":      "@hello"
           ".secondary": "@hello1"
@@ -20,19 +20,19 @@ define
       ]
 
   hello:
-    path: "src/modules/sub_module/index"
+    path: "src/modules/hello/hello"
     deps:
       arguments: [
         id: "hello"
-        route: "/index/hello"
+        route: "index/hello"
         dispatcher: "@event_dispatcher"
       ]
 
   hello1:
-    path: "src/modules/sub_module/index"
+    path: "src/modules/hello/hello"
     deps:
       arguments: [
         id: "hello1"
-        route: "/index/hello1"
+        route: "index/hello1"
         dispatcher: "@event_dispatcher"
       ]

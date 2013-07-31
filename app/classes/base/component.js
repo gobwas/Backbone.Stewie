@@ -10,10 +10,8 @@ define(
     function() {
         var Component = function Component(options) {
 
-            // TODO assert (id);
-            // TODO assert (options);
-
-            options || (options = {});
+            // TODO assert (_options.id);
+            // TODO assert (_options);
 
             /**
              * Parameters.
@@ -29,7 +27,7 @@ define(
              * @type {string}
              * @private
              */
-            var _id = options.id || null;
+            var _id = _options.id || null;
 
             /**
              * Returns component key.

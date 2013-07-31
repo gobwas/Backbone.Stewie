@@ -18,16 +18,16 @@ define(
                 // parent call
                 Component.prototype.constructor.apply(this, arguments);
 
-                options || (options = {});
+                var _options = options || {};
 
                 // TODO assert (dispatcher);
                 // TODO assert (regions);
 
-                this.events = options.dispatcher;
+                this.events = _options.dispatcher;
 
                 this.regions = {};
 
-                _.each(options.regions, function(module, target) {
+                _.each(_options.regions, function(module, target) {
                     this.addRegion(target, module);
                 }, this);
 

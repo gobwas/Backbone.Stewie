@@ -17,9 +17,14 @@ define(
 			};
 
 			this.init = function() {
-				var model  = new AppModel(),
-					router = new AppRouter,
-					layout = new AppLayout({model: model, router: router});
+                /*var routesMap = _.reduce(_config.router.routes, function(map, route){
+                    map[route] = null;
+                    return map;
+                }, {});*/
+
+                var model  = new AppModel(),
+					router = new AppRouter({routes: _config.router.routes}),
+					layout = new AppLayout({model: model, router: router, el: _config.view.el});
 
 				return layout;
 			};

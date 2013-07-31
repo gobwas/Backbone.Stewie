@@ -11,9 +11,19 @@ define(
 
 			template: LayoutTemplate,
 
+            initialize: function() {
+                this.router = this.options.router;
+
+                this.listenTo(this.router, 'route:test', this.onRouteTest);
+            },
+
 			render: function() {
 				this.$el.html(this.template(this.model.toJSON()));
-			}
+			},
+
+            onRouteTest: function() {
+                this.$el.css('background', 'green');
+            }
 		});
 	}
 );

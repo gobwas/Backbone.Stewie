@@ -7,10 +7,14 @@ define(
         // TODO Возможно layout должен знать id модуля, к которому он принадлежит
 
         var Module = Container.extend({
-            constructor: function Module() {
+            constructor: function Module(options) {
 
                 // parent call
                 Container.prototype.constructor.apply(this, arguments);
+
+                var _options = options || {};
+
+                this.options = _.cloneDeep(_options);
 
                 // Initialization
                 // --------------
