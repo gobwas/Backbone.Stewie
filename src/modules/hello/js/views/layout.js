@@ -27,7 +27,7 @@ define(
             },
 
             onClick: function() {
-                this.module.trigger('button:click', this);
+                this.module.trigger('megaclick', this);
             },
 
             onRouteTest: function() {

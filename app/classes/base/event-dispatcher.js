@@ -1,7 +1,7 @@
 define(
 	[],
 	function () {
-		var EventDispatcher = function(options)
+		var EventDispatcher = function EventDispatcher(options)
         {
 			var _modules = [],
                 _options = options,
@@ -13,7 +13,11 @@ define(
 			};
 
             this.bubble = function() {
-                Backbone.Events.trigger.apply(this, arguments);
+                var event = arguments[0];
+
+                if (!_.str.include(event, EventDispatcher.CAPTURE)) {
+                    Backbone.Events.trigger.apply(this, arguments);
+                }
             };
 
             this.capture = function() {
@@ -21,10 +25,11 @@ define(
                     event = arguments[0],
                     args = Array.prototype.slice.call(arguments, 1);
 
-                args.unshift('capture:' + event);
+                args.unshift(_.sprintf('%s:%s', EventDispatcher.CAPTURE, event));
 
                 if (!_.isEmpty(_modules)) {
                     _.each(_modules, function(module) {
+                        Backbone.Events.trigger.apply(module.events, args);
                         module.events.capture.apply(module.events, _arguments);
                     });
                 } else {
@@ -41,7 +46,12 @@ define(
             }
         });
 
-        EventDispatcher.extend = Backbone.extend;
+        _.extend(EventDispatcher, {
+            extend: Backbone.Event,
+
+            CAPTURE: 'capture'
+        });
+
 
 		return EventDispatcher;
 	}

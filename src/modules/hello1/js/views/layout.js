@@ -17,6 +17,7 @@ define(
 
             initialize: function() {
                 this.listenTo(this.router, 'route:test', this.onRouteTest);
+                this.listenTo(this.module.events, 'megaclick', this.onMegaclick);
             },
 
 			render: function() {
@@ -29,6 +30,10 @@ define(
 
             onRouteTest: function() {
                 this.$el.css({background: 'red'});
+            },
+
+            onMegaclick: function() {
+                this.$('.events').append('<p>megaclick</p>');
             }
 		});
 	}
