@@ -28,7 +28,7 @@ define(
                 this.regions = {};
 
                 _.each(_options.regions, function(module, target) {
-                    this.addRegion(target, module);
+                    this.addModule(module, target);
                 }, this);
 
                 // Initialization
@@ -39,13 +39,23 @@ define(
                 }
             },
 
-            addRegion: function(target, module) {
+            /**
+             * Proxy for EventsDispatcher#trigger method.
+             */
+            trigger: function() {
+                this.events.trigger.apply(this.events, arguments);
+            },
+
+            addModule: function(module, target) {
+                var events = this.events;
                 var region = this.regions[target] || (this.regions[target] = new Region());
-                if (_.isArray(module)) {
-                    _.each(module, region.push, region);
-                } else {
+
+                var modules = _.isArray(module) ? module : [module];
+
+                _.each(modules, function(module) {
+                    events.push(module);
                     region.push(module);
-                }
+                });
             },
 
             render: (function() {

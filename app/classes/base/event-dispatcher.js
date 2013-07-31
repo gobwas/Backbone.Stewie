@@ -3,32 +3,43 @@ define(
 	function () {
 		var EventDispatcher = function(options)
         {
-			var _registered = [],
+			var _modules = [],
                 _options = options,
                 _self = this;
 
-			this.register = function(dispatcher) {
-                _registered.push(dispatcher);
+			this.push = function(module) {
+                this.listenTo(module.events, 'all', this.bubble);
+                _modules.push(module);
 			};
 
-            this.bubble = function(event, subject, value) {
-                // here for all
+            this.bubble = function() {
+                Backbone.Events.trigger.apply(this, arguments);
             };
 
-            this.capture = function(event, subject, value) {
-                // here for dispatchers
+            this.capture = function() {
+                var _arguments = arguments,
+                    event = arguments[0],
+                    args = Array.prototype.slice.call(arguments, 1);
+
+                args.unshift('capture:' + event);
+
+                if (!_.isEmpty(_modules)) {
+                    _.each(_modules, function(module) {
+                        module.events.capture.apply(module.events, _arguments);
+                    });
+                } else {
+                    this.bubble.apply(this, arguments);
+                }
             };
 		};
 
-		EventDispatcher.prototype = {
-			constructor: EventDispatcher,
+        _.extend(EventDispatcher.prototype, Backbone.Events, {
+            constructor: EventDispatcher,
 
-            initialize: function(options) {
-                // TODO
+            trigger: function() {
+                this.capture.apply(this, arguments);
             }
-		};
-
-        _.extend(EventDispatcher.prototype, Backbone.Events);
+        });
 
         EventDispatcher.extend = Backbone.extend;
 

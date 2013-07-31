@@ -1,6 +1,6 @@
 define(
     [
-        "app/classes/abstract/module",
+        "app/classes/base/module",
         "./js/views/layout",
         "app/classes/base/sub-router",
     ],
