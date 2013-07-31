@@ -10,7 +10,8 @@ define(
                 var model = new Backbone.Model();
                 var router = new SubRouter({
                     routes: {
-                        "test*any": "test"
+                        "test*any":      "test",
+                        "params/:query": "params"
                     },
                     prefix: this.options.route
                 });
