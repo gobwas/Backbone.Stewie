@@ -2,8 +2,9 @@ define(
     [
         "app/classes/abstract/layout",
         "tpl!../../html/layout.html",
+        "app/classes/messenger/message",
     ],
-    function (Layout, LayoutTemplate) {
+    function (Layout, LayoutTemplate, Message) {
         return Layout.extend({
             tagName: "div",
 
@@ -27,7 +28,8 @@ define(
             },
 
             onClick: function() {
-                this.module.trigger('megaclick', this);
+                var message = new Message('megaclick', 1, 2, 3);
+                this.module.send(message);
             },
 
             onRouteTest: function() {

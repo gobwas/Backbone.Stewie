@@ -17,7 +17,7 @@ define(
 
             initialize: function() {
                 this.listenTo(this.router, 'route:test', this.onRouteTest);
-                this.listenTo(this.module.events, 'megaclick', this.onMegaclick);
+                this.listenTo(this.module, 'megaclick',  this.onMegaclick);
             },
 
 			render: function() {
@@ -33,7 +33,7 @@ define(
             },
 
             onMegaclick: function() {
-                this.$('.events').append('<p>megaclick</p>');
+                this.$('.events-hello1').append('<p>megaclick</p>');
             }
 		});
 	}

@@ -12,8 +12,8 @@ define(
 			template: LayoutTemplate,
 
             initialize: function() {
-                this.listenTo(this.router,        'route:test', this.onRouteTest);
-                this.listenTo(this.module.events, 'megaclick',  this.onMegaClick);
+                this.listenTo(this.router, 'route:test', this.onRouteTest);
+                this.listenTo(this.module, 'megaclick',  this.onMegaClick);
             },
 
 			render: function() {
@@ -25,7 +25,7 @@ define(
             },
 
             onMegaClick: function() {
-                this.$('.events').append('<p>megaclick</p>');
+                this.$('.events-index').append('<p>megaclick</p>');
             }
 		});
 	}

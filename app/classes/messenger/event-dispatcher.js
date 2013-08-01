@@ -1,6 +1,8 @@
 define(
-	[],
-	function () {
+	[
+        "app/classes/base/message"
+    ],
+	function (Message) {
 		var EventDispatcher = function EventDispatcher(options)
         {
 			var _modules = [],
@@ -12,28 +14,37 @@ define(
                 _modules.push(module);
 			};
 
-            this.bubble = function() {
-                var event = arguments[0];
+            this.bubble = function(message) {
+                // TODO assert message instanceof Message
+                // TODO assert message.getData instanceof Array
+
+                var data = message.getData();
+
+                var event = data[0];
 
                 if (!_.str.include(event, EventDispatcher.CAPTURE)) {
-                    Backbone.Events.trigger.apply(this, arguments);
+                    Backbone.Events.trigger.apply(this, data);
                 }
             };
 
-            this.capture = function() {
-                var _arguments = arguments,
-                    event = arguments[0],
-                    args = Array.prototype.slice.call(arguments, 1);
+            this.capture = function(message) {
+                // TODO assert message instanceof Message
+                // TODO assert message.getData instanceof Array
+
+                var data = message.getData();
+
+                var event = data[0],
+                    args = data.slice(1);
 
                 args.unshift(_.sprintf('%s:%s', EventDispatcher.CAPTURE, event));
 
                 if (!_.isEmpty(_modules)) {
                     _.each(_modules, function(module) {
                         Backbone.Events.trigger.apply(module.events, args);
-                        module.events.capture.apply(module.events, _arguments);
+                        module.events.capture.call(module.events, message);
                     });
                 } else {
-                    this.bubble.apply(this, arguments);
+                    this.bubble.call(this, message);
                 }
             };
 		};
@@ -42,7 +53,8 @@ define(
             constructor: EventDispatcher,
 
             trigger: function() {
-                this.capture.apply(this, arguments);
+                var message = new Message(_.toArray(arguments));
+                this.capture.call(this, message);
             }
         });
 
