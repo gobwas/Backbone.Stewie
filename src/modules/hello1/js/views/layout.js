@@ -16,9 +16,11 @@ define(
 			template: LayoutTemplate,
 
             initialize: function() {
-                this.listenTo(this.router, 'route:test', this.onRouteTest);
-                this.listenTo(this.module, 'megaclick',  this.onMegaclick);
-                this.module.listenBus(1000, 'megaclick', this.onMegaClickBus, this);
+                this.listenTo(this.router, 'route:test',    this.onRouteTest);
+                this.listenTo(this.module, 'megaclick',     this.onMegaclick);
+                this.listenTo(this.module, 'bus:megaclick', this.onMegaClickBus);
+
+                this.module.listenBus(1000, this.onMegaClickBus, this);
             },
 
 			render: function() {

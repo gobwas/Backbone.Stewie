@@ -1,12 +1,4 @@
 define
-  ## TODO возможно убрать вообще диспетчер отсюда и сделать его одинаковым для всех
-  messenger:
-    path: "app/classes/messenger/messenger"
-    deps:
-      arguments: [
-        test: 123
-      ]
-
   ## -------------------
   ## Pages
   ## -------------------
@@ -16,7 +8,6 @@ define
     deps:
       arguments: [
         id: "index_module"
-        messenger: "@messenger"
         route: "index"
         regions:
           ".main": "@hello"
@@ -34,7 +25,6 @@ define
         route: "index/hello"
         regions:
           ".sub": "@hello1"
-        messenger: "@messenger"
       ]
 
   hello1:
@@ -43,5 +33,4 @@ define
       arguments: [
         id: "hello1"
         route: "index/hello/hello1"
-        messenger: "@messenger"
       ]

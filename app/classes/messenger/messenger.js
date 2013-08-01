@@ -1,6 +1,6 @@
 /**
  * MessageDispatcher.
- * 
+ *
  * @package module
  * @author Sergey Kamardin <s.kamardin@tcsbank.ru>
  */
@@ -71,8 +71,11 @@ define(
             },
 
             send: function(message) {
+                if (!message.getId()) {
+                    message.setId(_.uniqueId('messenger'));
+                }
+
                 message.setDirection(Message.CAPTURE);
-                message.setId(_.uniqueId('messenger_'));
 
                 this.capture(message);
             }
