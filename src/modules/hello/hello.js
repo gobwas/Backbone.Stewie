@@ -1,6 +1,6 @@
 define(
     [
-        "app/classes/abstract/module",
+        "app/classes/base/module",
         "./js/views/layout",
         "app/classes/base/sub-router",
     ],
@@ -16,7 +16,11 @@ define(
                     prefix: this.options.route
                 });
 
-                this.layout = new Layout({module: this, model: model, router: router});
+                this.layout = new Layout({
+                    module: this,
+                    model:  model,
+                    router: router
+                });
             }
         });
     }

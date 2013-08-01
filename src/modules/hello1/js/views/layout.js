@@ -16,9 +16,9 @@ define(
 			template: LayoutTemplate,
 
             initialize: function() {
-                this.router = this.options.router;
-
                 this.listenTo(this.router, 'route:test', this.onRouteTest);
+                this.listenTo(this.module, 'megaclick',  this.onMegaclick);
+                this.module.listenBus(1000, 'megaclick', this.onMegaClickBus, this);
             },
 
 			render: function() {
@@ -26,11 +26,19 @@ define(
 			},
 
             onClick: function() {
-                this.trigger('button:click', this, 1);
+
             },
 
             onRouteTest: function() {
                 this.$el.css({background: 'red'});
+            },
+
+            onMegaclick: function(message) {
+                this.$('.events-hello1').append(_.sprintf("<p>%s#%s</p>", message.getId(), message.getName()));
+            },
+
+            onMegaClickBus: function(message) {
+                this.$('.events-hello1').append(_.sprintf("<p>%s#%s</p>", message.getId(), message.getName()));
             }
 		});
 	}

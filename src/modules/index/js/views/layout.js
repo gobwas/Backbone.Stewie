@@ -12,9 +12,8 @@ define(
 			template: LayoutTemplate,
 
             initialize: function() {
-                this.router = this.options.router;
-
                 this.listenTo(this.router, 'route:test', this.onRouteTest);
+                this.listenTo(this.module, 'megaclick',  this.onMegaClick);
             },
 
 			render: function() {
@@ -23,6 +22,10 @@ define(
 
             onRouteTest: function() {
                 this.$el.css('background', 'green');
+            },
+
+            onMegaClick: function(message) {
+                this.$('.events-index').append(_.sprintf("<p>%s#%s</p>", message.getId(), message.getName()));
             }
 		});
 	}

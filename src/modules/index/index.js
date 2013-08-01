@@ -1,6 +1,6 @@
 define(
 	[
-		"app/classes/abstract/module",
+		"app/classes/base/module",
 		"./js/views/layout",
 		"./js/routers/router",
 	],
@@ -10,7 +10,11 @@ define(
 				var model = new Backbone.Model(),
                     router = new Router({prefix: this.options.route});
 
-				this.layout = new Layout({module: this, model: model, router: router});
+				this.layout = new Layout({
+                    module: this,
+                    model:  model,
+                    router: router
+                });
 			}
 		});
 	}

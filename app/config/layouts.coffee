@@ -1,7 +1,7 @@
 define
   ## TODO возможно убрать вообще диспетчер отсюда и сделать его одинаковым для всех
-  event_dispatcher:
-    path: "app/classes/base/event-dispatcher"
+  messenger:
+    path: "app/classes/messenger/messenger"
     deps:
       arguments: [
         test: 123
@@ -16,7 +16,7 @@ define
     deps:
       arguments: [
         id: "index_module"
-        dispatcher: "@event_dispatcher"
+        messenger: "@messenger"
         route: "index"
         regions:
           ".main": "@hello"
@@ -34,7 +34,7 @@ define
         route: "index/hello"
         regions:
           ".sub": "@hello1"
-        dispatcher: "@event_dispatcher"
+        messenger: "@messenger"
       ]
 
   hello1:
@@ -43,5 +43,5 @@ define
       arguments: [
         id: "hello1"
         route: "index/hello/hello1"
-        dispatcher: "@event_dispatcher"
+        messenger: "@messenger"
       ]

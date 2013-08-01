@@ -65,7 +65,7 @@ define(
             }
         };
 
-        Component.prototype = {
+        _.extend(Component.prototype, Backbone.Events, {
 
             constructor: Component,
 
@@ -88,7 +88,7 @@ define(
              * @abstract
              */
             initialize: function(){}
-        };
+        });
 
         Component.extend = Backbone.Model.extend;
 

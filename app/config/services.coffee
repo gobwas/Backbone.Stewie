@@ -16,11 +16,13 @@ define [
   services:
 
     "module-manager":
-      path: "app/services/module-manager"
+      path: "app/services/module-manager/module-manager"
       deps:
         calls:
           setConfig: [dm.escape(layouts)]
 
+    "bus":
+      path: "app/services/bus/bus"
 
       # arguments: ["%some_property"]
       # calls:

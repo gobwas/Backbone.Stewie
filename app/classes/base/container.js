@@ -10,8 +10,9 @@ define(
     [
         './component',
         './region',
+        "app/classes/messenger/messenger",
     ],
-    function(Component, Region) {
+    function(Component, Region, Messenger) {
         var Container = Component.extend({
 
             constructor: function Container(options) {
@@ -23,12 +24,12 @@ define(
                 // TODO assert (dispatcher);
                 // TODO assert (regions);
 
-                this.events = _options.dispatcher;
+                this.messenger = new Messenger(this);
 
                 this.regions = {};
 
                 _.each(_options.regions, function(module, target) {
-                    this.addRegion(target, module);
+                    this.addModule(module, target);
                 }, this);
 
                 // Initialization
@@ -39,13 +40,27 @@ define(
                 }
             },
 
-            addRegion: function(target, module) {
+            /**
+             * Proxy for Messenger#send method.
+             */
+            send: function(message) {
+                this.messenger.send(message);
+            },
+
+            update: function(message) {
+                this.trigger(message.getName(), message);
+            },
+
+            addModule: function(module, target) {
+                var messenger = this.messenger;
                 var region = this.regions[target] || (this.regions[target] = new Region());
-                if (_.isArray(module)) {
-                    _.each(module, region.push, region);
-                } else {
+
+                var modules = _.isArray(module) ? module : [module];
+
+                _.each(modules, function(module) {
+                    messenger.register(module);
                     region.push(module);
-                }
+                });
             },
 
             render: (function() {
