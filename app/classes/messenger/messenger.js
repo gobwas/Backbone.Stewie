@@ -72,7 +72,7 @@ define(
 
             send: function(message) {
                 message.setDirection(Message.CAPTURE);
-                message.setId(_.uniqueId('message_'));
+                message.setId(_.uniqueId('messenger_'));
 
                 this.capture(message);
             }

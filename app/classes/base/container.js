@@ -43,8 +43,8 @@ define(
             /**
              * Proxy for Messenger#send method.
              */
-            send: function() {
-                this.messenger.send.apply(this.messenger, arguments);
+            send: function(message) {
+                this.messenger.send(message);
             },
 
             update: function(message) {

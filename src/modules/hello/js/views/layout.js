@@ -9,7 +9,8 @@ define(
             tagName: "div",
 
             events: {
-                'click button': "onClick"
+                'click button.classic': "onClickClassic",
+                'click button.bus': "onClickBus"
             },
 
             className: "sub--layout",
@@ -28,9 +29,14 @@ define(
                 this.$el.html(this.template(this.model.toJSON()));
             },
 
-            onClick: function() {
+            onClickClassic: function() {
                 var message = new Message('megaclick', 1, 2, 3);
                 this.module.send(message);
+            },
+
+            onClickBus: function() {
+                var message = new Message('megaclick', 1, 2, 3);
+                this.module.sendBus(1000, message);
             },
 
             onRouteTest: function() {

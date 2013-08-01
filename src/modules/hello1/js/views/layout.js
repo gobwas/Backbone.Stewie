@@ -18,6 +18,7 @@ define(
             initialize: function() {
                 this.listenTo(this.router, 'route:test', this.onRouteTest);
                 this.listenTo(this.module, 'megaclick',  this.onMegaclick);
+                this.module.listenBus(1000, 'megaclick', this.onMegaClickBus, this);
             },
 
 			render: function() {
@@ -33,6 +34,10 @@ define(
             },
 
             onMegaclick: function(message) {
+                this.$('.events-hello1').append(_.sprintf("<p>%s#%s</p>", message.getId(), message.getName()));
+            },
+
+            onMegaClickBus: function(message) {
                 this.$('.events-hello1').append(_.sprintf("<p>%s#%s</p>", message.getId(), message.getName()));
             }
 		});

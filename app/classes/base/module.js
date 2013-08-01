@@ -1,8 +1,9 @@
 define(
     [
+        "dm",
         'app/classes/base/container',
     ],
-    function (Container) {
+    function (DM, Container) {
 
         // TODO Возможно layout должен знать id модуля, к которому он принадлежит
 
@@ -22,6 +23,24 @@ define(
                 if (this.constructor === Module || this.constructor.__super__.constructor === Module) {
                     this.initialize();
                 }
+            },
+
+            sendBus: function(port, message) {
+                // TODO assert message, port
+
+                DM.get('bus').done(function(Bus) {
+                    Bus.trigger(port, message.getName(), message);
+                });
+            },
+
+            listenBus: function(port, message, callback, context) {
+                // TODO assert port, message, callback
+
+                context || (context = this);
+
+                DM.get('bus').done(function(Bus) {
+                    Bus.on(port, message, callback, context);
+                });
             }
         });
 
