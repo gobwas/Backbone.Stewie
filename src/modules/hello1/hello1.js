@@ -20,6 +20,10 @@ define(
                     model:  model,
                     router: router
                 });
+
+                this.listenBus(1000, function(message) {
+                    this.trigger(_.sprintf('bus:%s', message.getName()), message)
+                }, this);
 			}
 		});
 	}

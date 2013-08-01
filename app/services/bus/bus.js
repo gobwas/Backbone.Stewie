@@ -14,67 +14,67 @@ define(
 
         Bus.prototype = {
             constructor: Bus,
-            on: function(port, name, callback, context) {
-                this.ports[port] || (this.ports[port] = {});
-                this.ports[port][name] || (this.ports[port][name] = []);
 
-                this.ports[port][name].push({callback: callback, ctx: context});
+            on: function(port, callback, filter, context) {
+                if (!_.isFunction(filter) && !context) {
+                    context = filter;
+                    filter = undefined;
+                }
+
+                this.ports[port] || (this.ports[port] = []);
+                this.ports[port].push({callback: callback, filter: filter, ctx: context});
 
                 return this;
             },
 
-            once: function(port, name, callback, context) {
+            once: function(port, callback, filter, context) {
                 var self = this;
-                var once = _.once(function() {
-                    self.off(port, name, once);
-                    callback.apply(context, arguments);
+                var once = _.once(function(message) {
+                    self.off(port, once, context);
+                    callback.call(context, message);
                 });
 
-                return this.on(port, name, once, context);
+                return this.on(port, once, filter, context);
             },
 
-            off: function(port, name, callback, context) {
+            off: function(port, callback, context) {
                 if (!callback && !context) {
                     return;
                 }
 
                 var ports = port ? [port] : _.keys(this.ports),
-                    names,
                     self = this,
                     retain,
                     events;
 
                 _.each(ports, function(port) {
                     if (self.ports[port]) {
+                        events = self.ports[port];
+                        self.ports[port] = retain = [];
 
-                        names = name ? [name] : _.keys(self.ports[port]);
-
-                        _.each(names, function(name) {
-                            if (events = self.ports[port][name]) {
-                                self.ports[port][name] = retain = [];
-
-                                _.each(events, function(ev) {
-                                    if (ev.ctx !== context || ev.callback !== callback) {
-                                        retain.push(ev);
-                                    }
-                                });
-
-                                if (!retain.length) {
-                                    delete self.ports[port][name];
-                                }
+                        _.each(events, function(listener) {
+                            if (listener.ctx !== context || listener.callback !== callback) {
+                                retain.push(listener);
                             }
-
                         });
+
+                        if (!retain.length) {
+                            delete self.ports[port];
+                        }
                     }
                 });
             },
 
-            trigger: function(port, name, message) {
-                message.setId(_.uniqueId('bus_'));
+            trigger: function(port, message) {
+                if (!message.getId()) {
+                    message.setId(_.uniqueId('bus'));
+                }
 
-                if (this.ports[port] && this.ports[port][name]) {
-                    _.each(this.ports[port][name], function(ev) {
-                        ev.callback.call(ev.ctx, message);
+                if (this.ports[port]) {
+                    _.each(this.ports[port], function(listener) {
+                        if (!_.isFunction(listener.filter) || listener.filter.call(listener.ctx, message)) {
+                            listener.callback.call(listener.ctx, message);
+                        }
                     });
                 }
             }

@@ -29,17 +29,15 @@ define(
                 // TODO assert message, port
 
                 DM.get('bus').done(function(Bus) {
-                    Bus.trigger(port, message.getName(), message);
+                    Bus.trigger(port, message);
                 });
             },
 
-            listenBus: function(port, message, callback, context) {
-                // TODO assert port, message, callback
-
-                context || (context = this);
+            listenBus: function(port, callback, filter, context) {
+                // TODO assert port, callback, filter
 
                 DM.get('bus').done(function(Bus) {
-                    Bus.on(port, message, callback, context);
+                    Bus.on(port, callback, filter, context);
                 });
             }
         });
