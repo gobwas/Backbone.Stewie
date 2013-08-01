@@ -74,7 +74,6 @@ define(
                 message.setDirection(Message.CAPTURE);
                 message.setId(_.uniqueId('message_'));
 
-                this.module.update(message);
                 this.capture(message);
             }
         });

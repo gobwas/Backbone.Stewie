@@ -21,6 +21,7 @@ define(
 
                 this.listenTo(this.router, 'route:test',   this.onRouteTest);
                 this.listenTo(this.router, 'route:params', this.onRouteParams);
+                this.listenTo(this.module, 'megaclick',    this.onMegaClick);
             },
 
             render: function() {
@@ -38,6 +39,10 @@ define(
 
             onRouteParams: function(params) {
                 console.log('params', params);
+            },
+
+            onMegaClick: function(message) {
+                this.$('.events-hello').append(_.sprintf("<p>%s#%s</p>", message.getId(), message.getName()));
             }
         });
     }

@@ -48,12 +48,7 @@ define(
             },
 
             update: function(message) {
-                var name = message.getName(),
-                    data = message.getData();
-
-                data.unshift(name);
-
-                this.trigger.apply(this, data);
+                this.trigger(message.getName(), message);
             },
 
             addModule: function(module, target) {

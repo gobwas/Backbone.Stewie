@@ -42,6 +42,7 @@ define(
                 },
                 stopPropagation: function() {
                     _bubble = false;
+                    _capture = false;
 
                     return this;
                 },

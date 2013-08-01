@@ -24,8 +24,8 @@ define(
                 this.$el.css('background', 'green');
             },
 
-            onMegaClick: function() {
-                this.$('.events-index').append('<p>megaclick</p>');
+            onMegaClick: function(message) {
+                this.$('.events-index').append(_.sprintf("<p>%s#%s</p>", message.getId(), message.getName()));
             }
 		});
 	}
