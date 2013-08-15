@@ -25,7 +25,7 @@ define(
 
             /**
              * Apply URL.
-             * Acts like Backbone.loadURL, but withot loading URL =)
+             * Acts like Backbone.loadURL, but without loading URL =)
              *
              * It is used to match case, when user loads sub url necessary, or refreshes the page.
              *

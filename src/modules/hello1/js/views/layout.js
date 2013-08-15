@@ -6,12 +6,11 @@ define(
 	function (Layout, LayoutTemplate) {
 		return Layout.extend({
 			tagName: "div",
+            className: "j-hello1",
 
             events: {
                 'click button': "onClick"
             },
-
-			className: "sub--layout",
 
 			template: LayoutTemplate,
 

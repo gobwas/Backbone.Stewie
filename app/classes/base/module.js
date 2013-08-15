@@ -20,6 +20,7 @@ define(
                 // Initialization
                 // --------------
 
+                // if this is instance of new Module, or new Module.extend({...});
                 if (this.constructor === Module || this.constructor.__super__.constructor === Module) {
                     this.initialize();
                 }

@@ -19,7 +19,7 @@ define(
                 _.each(this.modules, function(module) {
                     element.append(module.render().layout.el);
                 });
-            },
+            }
         };
 
         Region.extend = Backbone.Model.extend;

@@ -7,7 +7,7 @@ define(
 			/**
 			 * Имя экземпляра.
 			 */
-			name: "Service Manager"
+			name: "Dependency Manager"
 		});
 
 		return new DM();

@@ -1,15 +1,15 @@
 require.config
-  baseUrl: ""
+  baseUrl: "/"
   deps: [
     "vendor/jam/require.config",
-    "app/bootstrap"
+    "app/main",
   ]
   map:
     "*":
       "underscore": "lodash"
   paths:
-    "application": "app/application"
-    "dm": "app/dm"
+    "application": "app/classes/application/application"
+    "dm":          "app/classes/dm/dm"
   shim:
     underscore:
       exports: "_"

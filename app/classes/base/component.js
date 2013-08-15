@@ -8,10 +8,15 @@ define(
     [
     ],
     function() {
+        // List of view options to be merged as properties.
+        var componentOptions = ['autoRender'];
+
         var Component = function Component(options) {
 
             // TODO assert (_options.id);
             // TODO assert (_options);
+
+            _.extend(this, _.pick(options, componentOptions));
 
             /**
              * Parameters.
@@ -60,7 +65,8 @@ define(
             // Initialization
             // --------------
 
-            if (this.constructor === Component) {
+            // if this is instance of new Component, or new Component.extend({...});
+            if (this.constructor === Component || this.constructor.__super__.constructor === Component) {
                 this.initialize();
             }
         };
@@ -82,6 +88,20 @@ define(
                 this.layout.render();
 
                 return this;
+            },
+
+            setElement: function(element) {
+                // TODO assert element instanceof DOMElement
+
+                var self = this;
+
+                if (!this.layout) {
+                    throw new Error("Container must have the layout");
+                }
+
+                this.layout.setElement($(this.layout.getSelector(), element).get(0));
+
+                return this.autoRender ? this.render() : this;
             },
 
             /**

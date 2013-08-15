@@ -10,7 +10,7 @@ define
         id: "index_module"
         route: "index"
         regions:
-          ".main": "@hello"
+          ".r-hello": "@hello"
       ]
 
   ## -------------------
@@ -23,8 +23,9 @@ define
       arguments: [
         id: "hello"
         route: "index/hello"
+        autoRender: true
         regions:
-          ".sub": "@hello1"
+          ".r-hello1": "@hello1"
       ]
 
   hello1:

@@ -1,6 +1,6 @@
 define [
   "app/classes/abstract/dm"
-  "app/config/layouts"
+  "src/config/layouts"
 ], (dm, layouts) ->
 
   # Properties

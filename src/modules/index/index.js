@@ -8,7 +8,10 @@ define(
 		return Module.extend({
 			initialize: function() {
 				var model = new Backbone.Model(),
-                    router = new Router({prefix: this.options.route});
+                    router = new Router({
+                        // routes defined inside router! =)
+                        prefix: this.options.route
+                    });
 
 				this.layout = new Layout({
                     module: this,

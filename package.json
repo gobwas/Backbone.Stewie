@@ -26,6 +26,6 @@
     }
   },
   "devDependencies": {
-    "connect": "~2.7.11"
+    "express": "*"
   }
 }

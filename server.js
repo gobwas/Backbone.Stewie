@@ -1,7 +1,10 @@
-var connect = require('connect');
+var express = require('express');
+var app = express();
 
-var app = connect()
-	.use(connect.favicon())
-	.use(connect.logger('dev'))
-	.use(connect.static(__dirname))
-	.listen(8000);
+app.use(express.static(__dirname));
+
+app.get('/page', function(req, res){
+    res.sendfile(__dirname + '/page.html');
+});
+
+app.listen(8000);

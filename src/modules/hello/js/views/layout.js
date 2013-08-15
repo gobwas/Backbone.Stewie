@@ -7,13 +7,12 @@ define(
     function (Layout, LayoutTemplate, Message) {
         return Layout.extend({
             tagName: "div",
+            className: "j-hello",
 
             events: {
                 'click button.classic': "onClickClassic",
                 'click button.bus': "onClickBus"
             },
-
-            className: "sub--layout",
 
             template: LayoutTemplate,
 
@@ -27,6 +26,7 @@ define(
 
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));
+                return this;
             },
 
             onClickClassic: function() {

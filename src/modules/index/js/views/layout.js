@@ -6,8 +6,7 @@ define(
 	function (Layout, LayoutTemplate) {
 		return Layout.extend({
 			tagName: "div",
-
-			className: "template-layout",
+			className: "j-index",
 
 			template: LayoutTemplate,
 

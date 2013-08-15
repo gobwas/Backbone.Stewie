@@ -35,7 +35,8 @@ define(
                 // Initialization
                 // --------------
 
-                if (this.constructor === Container) {
+                // if this is instance of new Container, or new Container.extend({...});
+                if (this.constructor === Container || this.constructor.__super__.constructor === Container) {
                     this.initialize();
                 }
             },
@@ -63,37 +64,47 @@ define(
                 });
             },
 
-            render: (function() {
-                /**
-                 *
-                 * @param region
-                 * @param module
-                 * @param insert
-                 */
-                var addView = function(region, module, insert) {
-                    var layout = module.getOption('render') ?
-                        module.render().layout :
-                        module.layout;
+            render: function() {
+                var self = this;
 
-                    insert ? region.insertView(layout) : region.setView(layout);
-                };
-
-                return function() {
-                    var self = this;
-
-                    if (!this.layout) {
-                        throw new Error("Container must have the layout");
-                    }
-
-                    this.layout.render();
-
-                    _.each(this.regions, function(region, target) {
-                        region.render(self.layout.$(target));
-                    });
-
-                    return this;
+                if (!this.layout) {
+                    throw new Error("Container must have the layout");
                 }
-            })()
+
+                this.layout.render();
+
+                _.each(this.regions, function(region, target) {
+                    region.render(self.layout.$(target));
+                });
+
+                return this;
+            },
+
+            setElement: function(element) {
+                // TODO assert element instanceof DOMElement
+
+                var self = this;
+
+                if (!this.layout) {
+                    throw new Error("Container must have the layout");
+                }
+
+                this.layout.setElement(element);
+
+                if (this.autoRender) {
+                    return this.render();
+                }
+
+                _.each(this.regions, function(region, target) {
+                    var el = self.layout.$(target);
+
+                    _.each(region.modules, function(module) {
+                        module.setElement($(module.layout.getSelector(), el).get(0));
+                    });
+                });
+
+                return this;
+            }
         });
 
         return Container;
